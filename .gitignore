@@ -7,8 +7,9 @@
 #/dataSources/
 #/dataSources.local.xml
 **/target/
-.idea
+.idea/
 *.iml
 *.class
 *Test.java
 **/test/
+.DS_Store
