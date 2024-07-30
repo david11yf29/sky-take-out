@@ -17,7 +17,7 @@ public interface EmployeeMapper {
      * @param username
      * @return
      */
-    @Select("select * from employee where username = #{username}")
+    @Select("SELECT * FROM employee WHERE username = #{username}")
     Employee getByUsername(String username);
 
     /**
@@ -41,4 +41,12 @@ public interface EmployeeMapper {
      * @param employee
      */
     void update(Employee employee);
+
+    /**
+     * 根據 id 查詢員工信息
+     * @param id
+     * @return
+     */
+    @Select("SELECT * FROM employee WHERE id = #{id}")
+    Employee getById(Long id);
 }

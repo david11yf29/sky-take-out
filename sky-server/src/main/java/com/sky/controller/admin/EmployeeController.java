@@ -116,4 +116,29 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /**
+     * 根據 id 查詢員工信息
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    @ApiOperation("根據 id 查詢員工信息 [EmployeeController 類方法 getById")
+    public Result<Employee> getById(@PathVariable Long id) {
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
+    }
+
+    /**
+     * 編輯員工信息
+     * @param employeeDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("編輯員工信息 [EmployeeController 類方法 update")
+    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+        log.info("[Logger] 編輯員工信息: {}", employeeDTO);
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
+
 }
