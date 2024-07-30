@@ -1,6 +1,7 @@
 package com.sky.controller.admin;
 
 import com.sky.constant.JwtClaimsConstant;
+import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.entity.Employee;
 import com.sky.properties.JwtProperties;
@@ -20,35 +21,30 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-
-/*
-* new branch testing 3
-* */
-
 /**
  * 员工管理
  */
 @RestController
 @RequestMapping("/admin/employee")
 @Slf4j
-@Api(tags = "員工相關接口")
+@Api(tags = "員工相關接口 [EmployeeController 類方法上方]")
 public class EmployeeController {
 
-    @Autowired
+    @Autowired // employeeService 是 interface 而非 class, EmployeeServiceImpl 會自動生成並儲存在 Bean 裡面等之後 DI
     private EmployeeService employeeService;
+
     @Autowired
     private JwtProperties jwtProperties;
 
     /**
      * 登录
-     *
      * @param employeeLoginDTO
      * @return
      */
     @PostMapping("/login")
-    @ApiOperation(value = "員工登入")
+    @ApiOperation(value = "員工登入 [EmployeeController 類方法 login]")
     public Result<EmployeeLoginVO> login(@RequestBody EmployeeLoginDTO employeeLoginDTO) {
-        log.info("员工登录：{}", employeeLoginDTO);
+        log.info("[Logger] 员工登录：{}", employeeLoginDTO);
 
         Employee employee = employeeService.login(employeeLoginDTO);
 
@@ -72,12 +68,24 @@ public class EmployeeController {
 
     /**
      * 退出
-     *
      * @return
      */
     @PostMapping("/logout")
-    @ApiOperation("員工退出")
+    @ApiOperation("員工退出 [EmployeeController 類方法 logout")
     public Result<String> logout() {
+        return Result.success();
+    }
+
+    /**
+     * 新增員工
+     * @param employeeDTO
+     * @return
+     */
+    @PostMapping
+    @ApiOperation("新增員工 [EmployeeController 類方法 save")
+    public Result save(@RequestBody EmployeeDTO employeeDTO){
+        log.info("[Logger] 新增員工: {}", employeeDTO);
+        employeeService.save(employeeDTO);
         return Result.success();
     }
 
