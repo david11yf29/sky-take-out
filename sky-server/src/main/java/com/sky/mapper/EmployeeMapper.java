@@ -36,4 +36,9 @@ public interface EmployeeMapper {
     // 配置在 EmployeeMapper.xml 而不是單純 @Select 因為動態語句較為複雜
     Page<Employee> pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 
+    /**
+     * 根據主鍵動態修改屬性
+     * @param employee
+     */
+    void update(Employee employee);
 }
