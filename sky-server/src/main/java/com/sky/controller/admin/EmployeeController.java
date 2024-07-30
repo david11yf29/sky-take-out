@@ -85,6 +85,7 @@ public class EmployeeController {
     @ApiOperation("新增員工 [EmployeeController 類方法 save")
     public Result save(@RequestBody EmployeeDTO employeeDTO){
         log.info("[Logger] 新增員工: {}", employeeDTO);
+        System.out.println("當前線程的 id: " + Thread.currentThread().getId());
         employeeService.save(employeeDTO);
         return Result.success();
     }
