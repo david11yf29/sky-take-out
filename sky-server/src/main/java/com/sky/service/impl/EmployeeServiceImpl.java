@@ -87,13 +87,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         // 2. 設置密碼, 默認 123456 並使用 md5 加密
         employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
 
-        // 3. 設置創建當前時間和修改時間
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+        // 3. 設置創建當前時間和修改時間 -> 後續已經用 AOP 實現自動填充
+        // employee.setCreateTime(LocalDateTime.now());
+        // employee.setUpdateTime(LocalDateTime.now());
 
-        // 4. 設置當前記錄創建人 id 和修改人 id
-        employee.setCreateUser(BaseContext.getCurrentId());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        // 4. 設置當前記錄創建人 id 和修改人 id -> 後續已經用 AOP 實現自動填充
+        // employee.setCreateUser(BaseContext.getCurrentId());
+        // employee.setUpdateUser(BaseContext.getCurrentId());
 
 
         employeeMapper.insert(employee);
@@ -159,8 +159,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO, employee);
 
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        // 後續已經用 AOP 實現自動填充
+        // employee.setUpdateTime(LocalDateTime.now());
+        // employee.setUpdateUser(BaseContext.getCurrentId());
 
         employeeMapper.update(employee);
     }

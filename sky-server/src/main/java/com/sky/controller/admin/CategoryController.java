@@ -33,7 +33,7 @@ public class CategoryController {
     @PostMapping
     @ApiOperation("新增分类 [CategoryController 類方法 save]")
     public Result<String> save(@RequestBody CategoryDTO categoryDTO){
-        log.info("新增分类：{}", categoryDTO);
+        log.info("[Logger] 新增分类：{}", categoryDTO);
         categoryService.save(categoryDTO);
         return Result.success();
     }
@@ -46,7 +46,7 @@ public class CategoryController {
     @GetMapping("/page")
     @ApiOperation("分类分页查询 [CategoryController 類方法 page]")
     public Result<PageResult> page(CategoryPageQueryDTO categoryPageQueryDTO){
-        log.info("分页查询：{}", categoryPageQueryDTO);
+        log.info("[Logger] 分页查询：{}", categoryPageQueryDTO);
         PageResult pageResult = categoryService.pageQuery(categoryPageQueryDTO);
         return Result.success(pageResult);
     }
@@ -59,7 +59,7 @@ public class CategoryController {
     @DeleteMapping
     @ApiOperation("删除分类 [CategoryController 類方法 deleteById]")
     public Result<String> deleteById(Long id){
-        log.info("删除分类：{}", id);
+        log.info("[Logger] 删除分类：{}", id);
         categoryService.deleteById(id);
         return Result.success();
     }
