@@ -26,7 +26,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin/employee")
 @Slf4j
-@Api(tags = "員工相關接口 [EmployeeController 類方法上方]")
+@Api(tags = "員工相關接口 [EmployeeController 類上方]")
 public class EmployeeController {
 
     @Autowired // employeeService 是 interface 而非 class, EmployeeServiceImpl 會自動生成並儲存在 Bean 裡面等之後 DI
@@ -70,7 +70,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/logout")
-    @ApiOperation("員工退出 [EmployeeController 類方法 logout")
+    @ApiOperation("員工退出 [EmployeeController 類方法 logout]")
     public Result<String> logout() {
         return Result.success();
     }
@@ -81,7 +81,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping
-    @ApiOperation("新增員工 [EmployeeController 類方法 save")
+    @ApiOperation("新增員工 [EmployeeController 類方法 save]")
     public Result save(@RequestBody EmployeeDTO employeeDTO){
         log.info("[Logger] 新增員工: {}", employeeDTO);
         System.out.println("當前線程的 id: " + Thread.currentThread().getId());
@@ -95,7 +95,7 @@ public class EmployeeController {
      * @return
      */
     @GetMapping("/page")
-    @ApiOperation("員工分頁查詢 [EmployeeController 類方法 page")
+    @ApiOperation("員工分頁查詢 [EmployeeController 類方法 page]")
     public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO) {
         log.info("[Logger] 員工分頁查詢, 參數為: {}", employeePageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
@@ -109,7 +109,7 @@ public class EmployeeController {
      * @return
      */
     @PostMapping("/status/{status}")
-    @ApiOperation("啟用禁用員工帳號 [EmployeeController 類方法 startOrStop")
+    @ApiOperation("啟用禁用員工帳號 [EmployeeController 類方法 startOrStop]")
     public Result startOrStop(@PathVariable Integer status, Long id) {
         log.info("[Logger] 啟用禁用員工帳號: {}, {}", status, id);
         employeeService.startOrStop(status,id);
@@ -122,7 +122,7 @@ public class EmployeeController {
      * @return
      */
     @GetMapping("/{id}")
-    @ApiOperation("根據 id 查詢員工信息 [EmployeeController 類方法 getById")
+    @ApiOperation("根據 id 查詢員工信息 [EmployeeController 類方法 getById]")
     public Result<Employee> getById(@PathVariable Long id) {
         Employee employee = employeeService.getById(id);
         return Result.success(employee);
@@ -134,7 +134,7 @@ public class EmployeeController {
      * @return
      */
     @PutMapping
-    @ApiOperation("編輯員工信息 [EmployeeController 類方法 update")
+    @ApiOperation("編輯員工信息 [EmployeeController 類方法 update]")
     public Result update(@RequestBody EmployeeDTO employeeDTO) {
         log.info("[Logger] 編輯員工信息: {}", employeeDTO);
         employeeService.update(employeeDTO);
