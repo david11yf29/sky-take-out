@@ -162,7 +162,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         // 後續已經用 AOP 實現自動填充
         // employee.setUpdateTime(LocalDateTime.now());
         // employee.setUpdateUser(BaseContext.getCurrentId());
-
         employeeMapper.update(employee);
     }
 
