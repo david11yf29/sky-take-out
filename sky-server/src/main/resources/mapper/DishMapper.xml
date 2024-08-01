@@ -8,4 +8,20 @@
             VALUES
         (#{name},#{categoryId},#{price},#{image},#{description},#{status},#{createTime},#{updateTime},#{createUser},#{updateUser})
     </insert>
+
+    <select id="pageQuery" resultType="com.sky.vo.DishVO">
+        SELECT d.*, c.name AS categoryName FROM dish d LEFT OUTER JOIN category c ON d.category_id = c.id
+        <where>
+            <if test="name != null">
+                AND d.name LIKE CONCAT('%',#{name},'%')
+            </if>
+            <if test="categoryId != null">
+                AND d.category_id = #{categoryId}
+            </if>
+            <if test="status != null">
+                AND d.status = #{status}
+            </if>
+        </where>
+        ORDER BY d.create_time DESC
+    </select>
 </mapper>
