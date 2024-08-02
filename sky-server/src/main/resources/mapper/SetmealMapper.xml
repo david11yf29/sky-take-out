@@ -64,4 +64,19 @@
         where id = #{id}
     </update>
 
+    <select id="list" resultType="com.sky.entity.Setmeal">
+        SELECT * FROM setmeal
+        <where>
+            <if test="name != null">
+                AND name LIKE concat('%',#{name},'%')
+            </if>
+            <if test="categoryId != null">
+                AND category_id = #{categoryId}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+
 </mapper>
