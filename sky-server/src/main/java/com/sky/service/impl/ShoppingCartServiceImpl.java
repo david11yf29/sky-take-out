@@ -92,4 +92,16 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         List<ShoppingCart> list = shoppingCartMapper.list(shoppingCart);
         return list;
     }
+
+    /**
+     * 清空購物車
+     * @return
+     */
+    @Override
+    public void cleanShoppingCart() {
+        // 獲取當前微信用戶的 id
+//        Long userId = BaseContext.getCurrentId();
+        Long userId = 666L; // 直接固定 666
+        shoppingCartMapper.deleteByUserId(userId);
+    }
 }
