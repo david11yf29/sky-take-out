@@ -41,11 +41,24 @@ public class DishController {
     @GetMapping("/list")
     @ApiOperation("端 - 根据分类 id 查询菜品 [DishController 類方法 list]")
     public Result<List<DishVO>> list(Long categoryId) {
+
+        // 構造 redis 中的 key, 規則: dish_分類id
+        String key = "dish_" + categoryId;
+
+        // 查詢 redis 中是否存在菜品種類
+        List<DishVO> list = (List<DishVO>) redisTemplate.opsForValue().get(key);
+        if (list != null && list.size() > 0) {
+            // 如果存在直接返回, 無須查詢數據庫
+            return Result.success(list);
+        }
+
         Dish dish = new Dish();
         dish.setCategoryId(categoryId);
         dish.setStatus(StatusConstant.ENABLE);//查询起售中的菜品
 
-        List<DishVO> list = dishService.listWithFlavor(dish);
+        // 如果不存在, 查詢數據庫, 並且將查到的數據放入 redis 中
+        list = dishService.listWithFlavor(dish);
+        redisTemplate.opsForValue().set(key,list);
 
         return Result.success(list);
     }
