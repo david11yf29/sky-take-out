@@ -9,13 +9,13 @@
     </insert>
 
     <select id="countByMap" resultType="java.lang.Integer">
-        select count(id) from user
+        SELECT COUNT(id) FROM user
         <where>
             <if test="begin != null">
-                and create_time &gt; #{begin}
+                AND create_time &gt; #{begin}
             </if>
             <if test="end != null">
-                and create_time &lt; #{end}
+                AND create_time &lt; #{end}
             </if>
         </where>
     </select>
