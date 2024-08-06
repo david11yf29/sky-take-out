@@ -1,5 +1,6 @@
 package com.sky.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -16,6 +17,7 @@ import com.sky.vo.OrderPaymentVO;
 import com.sky.vo.OrderStatisticsVO;
 import com.sky.vo.OrderSubmitVO;
 import com.sky.vo.OrderVO;
+import com.sky.websocket.WebSocketServer;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
 import org.aspectj.weaver.ast.Or;
@@ -29,7 +31,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -46,6 +50,8 @@ public class OrderServiceImpl implements OrderService {
     private ShoppingCartMapper shoppingCartMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private WebSocketServer webSocketServer;
 
     /**
      * 用戶下單
@@ -187,6 +193,15 @@ public class OrderServiceImpl implements OrderService {
                 .build();
 
         orderMapper.update(orders);
+
+        // 通過 websocket 像客戶端瀏覽器推送消息 type orderId content
+        Map map = new HashMap();
+        map.put("type", 1); // 1 表示來單提醒 2 表示客戶催單
+        map.put("orderId", ordersDB.getId());
+        map.put("content", "訂單號: " + outTradeNo);
+
+        String json = JSON.toJSONString(map);
+        webSocketServer.sendToAllClient(json);
     }
 
     /**
@@ -232,7 +247,6 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 查询订单详情
-     *
      * @param id
      * @return
      */
@@ -254,7 +268,6 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 用户取消订单
-     *
      * @param id
      */
     @Override
