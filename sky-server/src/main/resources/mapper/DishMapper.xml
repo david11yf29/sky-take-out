@@ -48,19 +48,31 @@
     </update>
 
     <select id="list" resultType="Dish" parameterType="Dish">
-        select * from dish
+        SELECT * FROM dish
         <where>
             <if test="name != null">
-                and name like concat('%',#{name},'%')
+                AND name LIKE concat('%',#{name},'%')
             </if>
             <if test="categoryId != null">
-                and category_id = #{categoryId}
+                AND category_id = #{categoryId}
             </if>
             <if test="status != null">
-                and status = #{status}
+                AND status = #{status}
             </if>
         </where>
-        order by create_time desc
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="countByMap" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM dish
+        <where>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            <if test="categoryId != null">
+                AND category_id = #{categoryId}
+            </if>
+        </where>
     </select>
 
 </mapper>

@@ -22,23 +22,23 @@ public class WebSocketTask {
     /**
      * 通过WebSocket每隔5秒向客户端发送消息
      */
-//    @Scheduled(cron = "0/5 * * * * ?")
-//    public void sendMessageToClient() {
-//        webSocketServer.sendToAllClient("这是来自服务端的消息：" + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalDateTime.now()));
-//    }
-
     @Scheduled(cron = "0/5 * * * * ?")
     public void sendMessageToClient() {
-        try {
-            Map<String, String> message = new HashMap<>();
-            message.put("message", "这是来自服务端的消息：" + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalDateTime.now()));
-
-            String jsonMessage = jacksonObjectMapper.writeValueAsString(message);
-            webSocketServer.sendToAllClient(jsonMessage);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        webSocketServer.sendToAllClient("这是来自服务端的消息：" + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalDateTime.now()));
     }
+
+//    @Scheduled(cron = "0/5 * * * * ?")
+//    public void sendMessageToClient() {
+//        try {
+//            Map<String, String> message = new HashMap<>();
+//            message.put("message", "这是来自服务端的消息：" + DateTimeFormatter.ofPattern("HH:mm:ss").format(LocalDateTime.now()));
+//
+//            String jsonMessage = jacksonObjectMapper.writeValueAsString(message);
+//            webSocketServer.sendToAllClient(jsonMessage);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
 
 
