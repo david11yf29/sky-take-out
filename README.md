@@ -1,3 +1,5 @@
+![sky-take-out](https://socialify.git.ci/david11yf29/sky-take-out/image?font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
+
 # Sky Take Out
 一個使用 Spring Boot 框架的外賣平台，用於下單和管理訂單。
 
