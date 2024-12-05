@@ -33,9 +33,7 @@
 - **前端**：Nginx
 
 ## 示例
-![Click](https://github.com/user-attachments/assets/1449a1c6-5248-415e-8d56-86540886a1d8)
-
-
+https://github.com/user-attachments/assets/1449a1c6-5248-415e-8d56-86540886a1d8
 
 ## 授權
 本項目基於 [MIT License](LICENSE) 許可使用。
