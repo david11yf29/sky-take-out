@@ -1,6 +1,10 @@
 # Sky Take Out
 一個使用 Spring Boot 框架的外賣平台，用於下單和管理訂單。
 
+![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/sky-take-out/main.yml)
+![License](https://img.shields.io/github/license/your-username/sky-take-out)
+
+
 ## 目錄
 - [功能](#功能)
 - [使用方法](#使用方法)
