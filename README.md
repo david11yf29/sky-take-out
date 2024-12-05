@@ -11,7 +11,8 @@
 ## 功能
 - 訂單管理
 - 歷史訂單查看
-- 使用 Redis 提升性能
+- 即時 WebSocket 訊息通知
+- 使用 Redis 緩存菜單
 - 提供 RESTful API
 
 ## 使用方法
@@ -25,11 +26,9 @@
    - 客戶催單：`GET /user/order/reminder/18`
   
 ## 技術細節
-- **後端**：Spring Boot, MyBatis
+- **後端**：Spring Boot, MyBatis, Websocket
 - **資料庫**：MySQL, Redis
-- **消息隊列**：Kafka
-- **容器化**：Docker
-- **前端（如果有）**：React.js
+- **前端**：Nginx
 
 
 
