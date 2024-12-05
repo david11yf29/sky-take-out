@@ -33,7 +33,7 @@
 - **前端**：Nginx
 
 ## 示例
-https://github.com/user-attachments/assets/1449a1c6-5248-415e-8d56-86540886a1d8
+![Click](https://github.com/user-attachments/assets/1449a1c6-5248-415e-8d56-86540886a1d8)
 
 
 
