@@ -1,5 +1,5 @@
 # Sky Take Out
-一個基於 Spring Boot 的外賣平台，用於下單和管理訂單。
+一個使用 Spring Boot 框架的外賣平台，用於下單和管理訂單。
 
 ## 目錄
 - [功能](#功能)
@@ -29,6 +29,9 @@
 - **後端**：Spring Boot, MyBatis, Websocket
 - **資料庫**：MySQL, Redis
 - **前端**：Nginx
+
+## 示例
+![系統主界面](https://example.com/screenshot.png)
 
 
 
