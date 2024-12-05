@@ -33,7 +33,7 @@
 - **前端**：Nginx
 
 ## 示例
-![系統主界面](https://example.com/screenshot.png)
+[![Watch the video](https://img.youtube.com/vi/_5tFXJQIzi4/0.jpg)](https://github.com/david11yf29/sky-take-out/blob/master/demo.mp4)
 
 ## 授權
 本項目基於 [MIT License](LICENSE) 許可使用。
