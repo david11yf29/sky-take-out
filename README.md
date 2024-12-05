@@ -35,10 +35,10 @@
 ## 示例
 https://github.com/user-attachments/assets/1449a1c6-5248-415e-8d56-86540886a1d8
 
-<img width="210" alt="截圖 2024-12-05 下午2 00 58" src="https://github.com/user-attachments/assets/07229cef-b335-4a51-af47-a70fdcd465bb">
-<img width="210" alt="截圖 2024-12-05 下午2 01 12" src="https://github.com/user-attachments/assets/1281b73b-91d7-46eb-8b03-3e9b7edc6741">
-<img width="210" alt="截圖 2024-12-05 下午2 01 17" src="https://github.com/user-attachments/assets/13532d31-2d4f-4975-98f7-a8227655da33">
-<img width="210" alt="截圖 2024-12-05 下午2 00 43" src="https://github.com/user-attachments/assets/253e0a0e-03b5-4cf3-8020-8be7bb27df03">
+<img width="420" alt="截圖 2024-12-05 下午2 00 58" src="https://github.com/user-attachments/assets/07229cef-b335-4a51-af47-a70fdcd465bb">
+<img width="420" alt="截圖 2024-12-05 下午2 01 12" src="https://github.com/user-attachments/assets/1281b73b-91d7-46eb-8b03-3e9b7edc6741">
+<img width="420" alt="截圖 2024-12-05 下午2 01 17" src="https://github.com/user-attachments/assets/13532d31-2d4f-4975-98f7-a8227655da33">
+<img width="420" alt="截圖 2024-12-05 下午2 00 43" src="https://github.com/user-attachments/assets/253e0a0e-03b5-4cf3-8020-8be7bb27df03">
 
 ## 授權
 本項目基於 [MIT License](LICENSE) 許可使用。
