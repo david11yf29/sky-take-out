@@ -33,5 +33,9 @@
 ## 示例
 ![系統主界面](https://example.com/screenshot.png)
 
+## 授權
+本項目基於 [MIT License](LICENSE) 許可使用。
+
+
 
 
